@@ -112,4 +112,4 @@ gulp.task("serve", function () {
   browserSync.watch("public/**/*.*").on("change", browserSync.reload);
 });
 
-gulp.task("dev", gulp.series("build", gulp.parallel("watch", "serve")));
+gulp.task("start", gulp.series("build", gulp.parallel("watch", "serve")));
