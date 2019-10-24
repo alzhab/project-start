@@ -96,13 +96,19 @@ gulp.task("images", function () {
     .pipe(gulp.dest("public/img"));
 });
 
-gulp.task("build", gulp.series("clean", gulp.parallel("html", "sass", "js", "images")));
+gulp.task("fonts", function () {
+  return gulp.src('./dev/fonts/**/*.*')
+    .pipe(gulp.dest('public/fonts'))
+})
+
+gulp.task("build", gulp.series("clean", gulp.parallel("html", "sass", "js", "images", "fonts")));
 
 gulp.task("watch", function () {
   gulp.watch("dev/**/**.scss", gulp.series("sass"));
   gulp.watch("dev/**/**.js", gulp.series("js"));
   gulp.watch("dev/**/**.pug", gulp.series("html"));
   gulp.watch("dev/**/**/img/*.{png, jpeg, gif}", gulp.series("html"));
+  gulp.watch("dev/fonts/**/*.*", gulp.series("fonts"));
 });
 
 gulp.task("serve", function () {
