@@ -107,7 +107,7 @@ gulp.task("watch", function () {
   gulp.watch("dev/**/**.scss", gulp.series("sass"));
   gulp.watch("dev/**/**.js", gulp.series("js"));
   gulp.watch("dev/**/**.pug", gulp.series("html"));
-  gulp.watch("dev/**/**/img/*.{png, jpeg, gif}", gulp.series("html"));
+  gulp.watch("dev/**/img/*.{png, jpeg, gif}", gulp.series("images"));
   gulp.watch("dev/fonts/**/*.*", gulp.series("fonts"));
 });
 
